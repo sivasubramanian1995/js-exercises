@@ -1,0 +1,50 @@
+body {
+  font-family: sans-serif;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+.pocket ul {
+  overflow: hidden;
+  width: 265px;
+}
+.pocket li {
+  background: #c00;
+  border: 1px solid #300;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  line-height: 50px;
+  cursor: pointer;
+  float: left;
+}
+.pocket li:hover {
+  background: #a00;
+}
+.classifiedColumn {
+  color: #fff;
+  font-size: 18px;
+  list-style: none;
+  text-align: center;
+  float: left;
+  width: 100px;
+}
+.classifiedColumn li {
+  background: #a00;
+  padding: 10px;
+  border: 1px solid #fff;
+}
+.classifiedColumn li:first-child {
+  background: #999;
+  font-size: 15px;
+}
+h4 {
+  overflow: hidden;
+  width: 100%;
+  padding-top: 2em;
+  margin-bottom: 10px;
+}
