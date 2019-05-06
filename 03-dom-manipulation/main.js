@@ -11,10 +11,9 @@ function clickEventHandler(event) {
 function pushAndSort(element, column) {
     var listOfColumn= Array.from(document.querySelectorAll('#col-'+column +" > li:not(:first-child)"))
     listOfColumn.push(element);
-    var Col = listOfColumn.sort(function(a, b){
+    listOfColumn.sort(function(a, b){
         if (a.innerHTML.toLowerCase() < b.innerHTML.toLowerCase()) {return -1;}
         else  {return 1;}
-    });
-    Col.forEach(el => document.querySelector('#col-'+column).appendChild(el));
+    }).forEach(el => document.querySelector('#col-'+column).appendChild(el));
     if(!pocketElem.querySelectorAll('li').length) pocketElem.remove()
 }
