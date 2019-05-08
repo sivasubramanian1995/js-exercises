@@ -1,30 +1,32 @@
 const model = {
-    pocketElem:  document.getElementById('pocket'),
-    listX: (column) => Array.from(document.querySelectorAll('.classifiedColumn')[column].querySelectorAll("li:not(:first-child)"))
+    pocketCurrentLength: document.getElementById('pocket').querySelectorAll('li').length,
+    col0: [],
+    col1: [],
+    col2: []
 }
 
 const controller = {
     actionHandler: (event) => {
-        let selectedText = event.target.innerHTML;
-        if((selectedText).match(/^(?=.*\d)(?=[aA]).[0-4]$/)) controller.pushAndSort(event.target, 0)
-        else if((selectedText).match(/^(?=.*\d)(?=[bB]).[0-4]$/)) controller.pushAndSort(event.target,1)
-        else if((selectedText).match(/^(?=.*\d)(?=[cC]).[0-4]$/)) controller.pushAndSort(event.target, 2)
+        var selectedText = event.target.innerHTML;
+        if((selectedText).match(/^(?=.*\d)(?=[aA]).[0-4]$/)) controller.sortAndPush(event.target, 0)
+        else if((selectedText).match(/^(?=.*\d)(?=[bB]).[0-4]$/)) controller.sortAndPush(event.target, 1)
+        else if((selectedText).match(/^(?=.*\d)(?=[cC]).[0-4]$/)) controller.sortAndPush(event.target, 2)    
     },
-    pushAndSort: (element, column) => {
-        let list = model.listX(column)
-        list.push(element)
-        view.updateColumns(list.sort(function(a, b){
+    sortAndPush: (element, column) => {
+        model['col'+column].push(element)
+        let list = model['col'+column].sort(function(a, b){
             if (a.innerHTML.toLowerCase() < b.innerHTML.toLowerCase()) {return -1;}
             else  {return 1;}
-        }), column)
-        if(!model.pocketElem.querySelectorAll('li').length) view.removePocketElem()
+        })
+        view.renderLists(column)
+        model.pocketCurrentLength--
+        if(model.pocketCurrentLength == 0) view.removePocket()
     }
-
 }
 
 const view = {
-    updateColumns: (arr, column) => arr.forEach(el => document.querySelectorAll('.classifiedColumn')[column].appendChild(el)),
-    removePocketElem: () => model.pocketElem.remove()
+    renderLists: (col) => model['col'+col].forEach(el => document.querySelectorAll('.classifiedColumn')[col].appendChild(el)),
+    removePocket: () => document.getElementById('pocket').remove()
 }
 
-model.pocketElem.addEventListener('click', controller.actionHandler)
+document.getElementById('pocket').addEventListener('click', controller.actionHandler)
