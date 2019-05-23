@@ -1,0 +1,44 @@
+body {
+  font-family: sans-serif;
+}
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+h3 {
+  text-align: center;
+}
+h4 {
+  font-size: 14px;
+}
+.wrapper {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+#congrats {
+  color: green;
+}
+.board {
+  background: #000;
+  border: 1px solid #000;
+  list-style: none;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+.board li {
+  background: #ccc;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 25%;
+  height: 25%;
+  cursor: pointer;
+}
+.board li:hover {
+  background: #bbb;
+}
