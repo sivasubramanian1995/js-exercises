@@ -48,8 +48,7 @@ const controller = {
         controller.isEnd();
     },
     isEnd : () => {
-        let lists  = document.querySelectorAll('#board > li:not(.froze)');
-        if(!lists.length) {
+        if(!document.querySelectorAll('#board > li:not(.froze)').length) {
             document.getElementsByTagName('h3')[0].style.display = 'none';
             document.getElementsByTagName('h4')[0].style.display = 'block';
         }
