@@ -56,18 +56,11 @@ const controller = {
 }
 
 const view = {
-    
-    renderSteps: (counter) => {
-        document.getElementById('steps').innerHTML = `Steps: ${counter}`;
-    }, 
-    renderColor : (color, elem) => {
-        elem.style.backgroundColor = color; 
-    }, 
+    renderSteps: (counter) => document.getElementById('steps').innerHTML = `Steps: ${counter}`,
+    renderColor : (color, elem) => elem.style.backgroundColor = color, 
     resetToOriginal : () => {
         let lists  = document.querySelectorAll('#board > li:not(.froze)');
-        lists.forEach(elem => {
-            view.renderColor('#CCC', elem)
-        })
+        lists.forEach(elem => view.renderColor('#CCC', elem))
     }
 }
 controller.init();
