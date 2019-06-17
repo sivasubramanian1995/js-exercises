@@ -54,11 +54,12 @@ const View = {
             Controller.calculateNextLevel(Model.modifiedInput);
         }
         Model.prevLevel.reverse();
-        Model.prevLevel.forEach(val => {
-            val.forEach(val2 => {
-                document.querySelector('.output').innerHTML += '&nbsp;&nbsp;' + val2 + '&nbsp;&nbsp;';                                
+        Model.prevLevel.forEach((val, index) => {
+            val.forEach(val2 => {       
+                var space = '&nbsp;';   
+                document.querySelector('.output').innerHTML += space.repeat(index) + val2 + space.repeat(index);                                
             })
-            document.querySelector('.output').innerHTML += '<br/>';                                
+            document.querySelector('.output').innerHTML += '<br/>'.repeat(2);                                
         })
 
     }
