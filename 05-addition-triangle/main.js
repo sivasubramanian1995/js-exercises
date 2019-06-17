@@ -23,6 +23,8 @@ const Controller = {
     },
     formSubmitListener : (e) => {
         e.preventDefault(); 
+        Model.setModifiedInput([]);
+        Model.prevLevel = [];
         Model.setinitialInput( (document.getElementById('num').value).trim().split(' ') );
         Controller.serveView();
     },
@@ -46,7 +48,8 @@ const View = {
         document.getElementById('inputForm'),addEventListener('submit', Controller.formSubmitListener)
     },
     renderTriangle : () => {
-        document.querySelector('.formGroup').style.display = 'none';
+        // document.querySelector('.formGroup').style.display = 'none';
+        document.querySelector('.output').innerHTML = "";                                
         document.querySelector('.output').style.display = 'block';
         Model.setModifiedInput(Model.initialInput);
         for(let i = 0; i < Model.initialInput.length; i++) {
