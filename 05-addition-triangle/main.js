@@ -48,7 +48,6 @@ const View = {
         document.getElementById('inputForm'),addEventListener('submit', Controller.formSubmitListener)
     },
     renderTriangle : () => {
-        // document.querySelector('.formGroup').style.display = 'none';
         document.querySelector('.output').innerHTML = "";                                
         document.querySelector('.output').style.display = 'block';
         Model.setModifiedInput(Model.initialInput);
@@ -56,13 +55,19 @@ const View = {
             Model.setPrevLevels(Model.modifiedInput, i)
             Controller.calculateNextLevel(Model.modifiedInput);
         }
-        Model.prevLevel.reverse();
         Model.prevLevel.forEach((val, index) => {
-            val.forEach(val2 => {       
+            var el = '';
+            val.forEach((val2, index2) => {       
                 var space = '&nbsp;';   
-                document.querySelector('.output').innerHTML += space.repeat(index) + val2 + space.repeat(index);                                
+                if(index2 != 0)
+                    el += space.repeat(val.length)
+                el += val2;   
             })
-            document.querySelector('.output').innerHTML += '<br/>'.repeat(2);                                
+            setTimeout(() => {
+                var div = document.createElement('div');  
+                div.innerHTML = el + '<br/>'.repeat(2) 
+                document.querySelector('.output').prepend(div)                              
+            }, 500*index);
         })
 
     }
