@@ -63,10 +63,15 @@ const View = {
                     el += space.repeat(val.length)
                 el += val2;   
             })
-            setTimeout(() => {
+            // setTimeout(() => {
                 var div = document.createElement('div');  
-                div.innerHTML = el + '<br/>'.repeat(2) 
+                div.innerHTML = '<span class="list_'+index+'"  style="display: none;">'+el + '<br/>'.repeat(2) + '</span>'
                 document.querySelector('.output').prepend(div)                              
+            // }, 500*index);
+        })
+        Model.prevLevel.forEach((val, index) => {
+            setTimeout(() => {
+                document.querySelector('.list_'+index).style.display = 'block';
             }, 500*index);
         })
 
