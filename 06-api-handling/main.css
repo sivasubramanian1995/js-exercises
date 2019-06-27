@@ -37,3 +37,18 @@
 }
 
   
+.nothing{
+  position: relative;
+  width: 100%;
+}
+.nothing:after{
+  position: relative;
+  content: '';
+  background: url(https://i.ibb.co/dmmjHfZ/2ueh5q.jpg) no-repeat;
+  background-size: 55%;
+  width: 100%;
+  height: 277px;
+  display: block;
+  padding-bottom: 62%;
+  background-position: center center;
+}

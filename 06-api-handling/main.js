@@ -40,7 +40,7 @@ Templates.renderModalContent = (data) => {
 }
 
 Templates.noData = () => {
-    return '<h1>No data Yo!</h1>'
+    return '<div class="nothing"></div>'
 }
 
 Templates.dead = () => {
@@ -90,7 +90,7 @@ Handlers.fetchAuthorData = (userId) => {
 }
 
 Handlers.renderAuthorData = (authorData) => {
-    if(authorData) {
+    if(Object.keys(authorData).length) {
         document.querySelector('.modal').innerHTML = Templates.renderModalContent(authorData);
     } else {
         document.querySelector('.modal').innerHTML = Templates.noData();
