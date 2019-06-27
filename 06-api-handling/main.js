@@ -6,7 +6,9 @@ Listeners.authorView = () => {
     var elements = Array.from(document.querySelectorAll('.viewAuthor'))
     elements.forEach(elem => {
         elem.addEventListener('click', (e) => {
+            e.stopPropagation();
             Handlers.fetchAuthorData(e.target.getAttribute('data-userID'))
+            document.querySelector('.progress').style.display='block'
         });
     })
 }
@@ -19,11 +21,10 @@ Listeners.scrollUp = () => {
 
 Templates.listView = (data) => {
     return `<div class="card">
-                <span class="card-title ">${data.title}</span>
-                  <p>${data.body}</p>
-                  <a href="javascript:;" data-userID="${data.userId}" data-id="${data.id}" class="waves-effect waves-light btn-small viewAuthor">View Details</a>
-                
-        </div>`;
+        <span class="card-title ">${data.title}</span>
+        <p>${data.body}</p>
+        <a href="javascript:;" data-userID="${data.userId}" data-id="${data.id}" class="waves-effect waves-light btn-small viewAuthor">View Details</a>
+    </div>`;
 }
 
 Templates.renderModalContent = (data) => {
@@ -61,9 +62,11 @@ Handlers.initializeList = () => {
             } else {
                 document.querySelector('.app').innerHTML = Templates.noData()
             }
+            document.querySelector('.progress').style.display='none'
         })
         .catch(ex => {
             console.log(ex);
+            document.querySelector('.progress').style.display='none'
             document.querySelector('.app').innerHTML = Templates.dead()                
         })
 }
@@ -82,6 +85,7 @@ Handlers.fetchAuthorData = (userId) => {
             })
             .catch(ex => {
                 console.log(ex);
+                document.querySelector('.progress').style.display='none'
                 document.querySelector('.modal').innerHTML = Templates.dead()     
                 var instance = M.Modal.init(document.querySelector('.modal'))
                 instance.open();           
@@ -90,6 +94,7 @@ Handlers.fetchAuthorData = (userId) => {
 }
 
 Handlers.renderAuthorData = (authorData) => {
+    document.querySelector('.progress').style.display='none'
     if(Object.keys(authorData).length) {
         document.querySelector('.modal').innerHTML = Templates.renderModalContent(authorData);
     } else {

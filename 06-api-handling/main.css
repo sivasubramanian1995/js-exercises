@@ -15,11 +15,22 @@
   font-weight: bold;
   line-height: 30px;
 }
+.progress.loader{
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  margin-top: 0
+}
+.hide{
+  display: none;
+}
 @media only screen and (max-width: 768px) {
   [class*="card"] {
     width: 100%;
   }
 }
+
 .error{
   position: relative;
   width: 100%;
