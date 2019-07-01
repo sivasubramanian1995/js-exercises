@@ -2,7 +2,8 @@
     display: flex;
     flex-flow: wrap;
     justify-content: space-between;
-  }
+}
+
 .cards
 {
   width: 32%;
@@ -18,6 +19,7 @@
   font-weight: bold;
   line-height: 30px;
 }
+
 .progress.loader{
   position: fixed;
   left: 0;
@@ -25,9 +27,11 @@
   z-index: 1;
   margin-top: 0
 }
+
 .hide{
   display: none;
 }
+
 @media only screen and (max-width: 768px) {
   [class*="card"] {
     width: 100%;
@@ -48,13 +52,13 @@
   display: block;
   padding-bottom: 62%;
   background-position: center center;
-}
+} 
 
-  
 .nothing{
   position: relative;
   width: 100%;
 }
+
 .nothing:after{
   position: relative;
   content: '';
@@ -66,6 +70,7 @@
   padding-bottom: 62%;
   background-position: center center;
 }
+
 .btn-custom {
   color: #ff6f00;
   border : 1px solid #ff6f00;
@@ -82,6 +87,7 @@
   margin: 5px 3px;
   transition: all .5s;
 }
+
 .progressbar {
   position: relative;
   height: 4px;
@@ -92,3 +98,22 @@
   margin: .5rem 0 1rem 0;
   overflow: hidden;
 }
+
+.containers {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 90%;
+}
+
+@media only screen and (min-width: 993px) {
+  .containers {
+      width: 70%;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .containers {
+      width: 85%;
+  }
+}
+
