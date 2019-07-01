@@ -19,10 +19,10 @@ Listeners.scrollUp = () => {
 }
 
 Templates.listView = (data) => {
-    return `<div class="card">
+    return `<div class="cards">
         <span class="card-title ">${data.title}</span>
         <p>${data.body}</p>
-        <a href="javascript:;" data-userID="${data.userId}" data-id="${data.id}" class="waves-effect waves-light btn-small viewAuthor">View Details</a>
+        <a href="javascript:;" data-userID="${data.userId}" data-id="${data.id}" class="viewAuthor btn-custom">View Details</a>
     </div>`;
 }
 

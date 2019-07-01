@@ -3,12 +3,15 @@
     flex-flow: wrap;
     justify-content: space-between;
   }
-.card 
+.cards
 {
   width: 32%;
-  border: 1px solid #cdcdcd;
+  border: 3px solid #e0e0e0;
   padding: 15px;
+  margin-top: 5px;
   margin-bottom: 20px;
+  box-shadow: 2px 1px 0px #e0e0e0;
+  /* background-color: #5e7c87; */
 }
 .card-title {
   font-size: 20px;
@@ -62,4 +65,30 @@
   display: block;
   padding-bottom: 62%;
   background-position: center center;
+}
+.btn-custom {
+  color: #ff6f00;
+  border : 1px solid #ff6f00;
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px 3px;
+}
+.btn-custom:hover, .btn-custom:active {
+  background-color: #ff6f00;
+  color: #FFFFFF;
+  border : 1px solid #ff6f00;
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px 3px;
+  transition: all .5s;
+}
+.progressbar {
+  position: relative;
+  height: 4px;
+  display: block;
+  width: 100%;
+  background-color: #acece6;
+  border-radius: 2px;
+  margin: .5rem 0 1rem 0;
+  overflow: hidden;
 }
