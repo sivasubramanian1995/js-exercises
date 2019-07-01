@@ -8,7 +8,6 @@ Listeners.authorView = () => {
         elem.addEventListener('click', (e) => {
             e.stopPropagation();
             Handlers.fetchAuthorData(e.target.getAttribute('data-userID'))
-            document.querySelector('.progress').style.display='block'
         });
     })
 }
@@ -75,6 +74,7 @@ Handlers.fetchAuthorData = (userId) => {
     if(localStorage.getItem(userId)) {
         Handlers.renderAuthorData(JSON.parse(localStorage.getItem(userId)))
     } else {
+        document.querySelector('.progress').style.display='block';
         fetch('https://jsonplaceholder.typicode.com/users/'+userId)
             .then(response => {
                 return response.json();
