@@ -61,11 +61,11 @@ Handlers.initializeList = () => {
             } else {
                 document.querySelector('.app').innerHTML = Templates.noData()
             }
-            document.querySelector('.progress').style.display='none'
+            document.querySelector('.progressbar').style.display='none'
         })
         .catch(ex => {
             console.log(ex);
-            document.querySelector('.progress').style.display='none'
+            document.querySelector('.progressbar').style.display='none'
             document.querySelector('.app').innerHTML = Templates.dead()                
         })
 }
@@ -74,7 +74,7 @@ Handlers.fetchAuthorData = (userId) => {
     if(localStorage.getItem(userId)) {
         Handlers.renderAuthorData(JSON.parse(localStorage.getItem(userId)))
     } else {
-        document.querySelector('.progress').style.display='block';
+        document.querySelector('.progressbar').style.display='block';
         fetch('https://jsonplaceholder.typicode.com/users/'+userId)
             .then(response => {
                 return response.json();
@@ -85,7 +85,7 @@ Handlers.fetchAuthorData = (userId) => {
             })
             .catch(ex => {
                 console.log(ex);
-                document.querySelector('.progress').style.display='none'
+                document.querySelector('.progressbar').style.display='none'
                 document.querySelector('.modal').innerHTML = Templates.dead()     
                 var instance = M.Modal.init(document.querySelector('.modal'))
                 instance.open();           
@@ -94,7 +94,7 @@ Handlers.fetchAuthorData = (userId) => {
 }
 
 Handlers.renderAuthorData = (authorData) => {
-    document.querySelector('.progress').style.display='none'
+    document.querySelector('.progressbar').style.display='none'
     if(Object.keys(authorData).length) {
         document.querySelector('.modal').innerHTML = Templates.renderModalContent(authorData);
     } else {
