@@ -241,12 +241,12 @@ body {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  background-color: #ff6f00;
   transition: background-color .3s;
   cursor: pointer;
   vertical-align: middle;
   border-radius: 50%;
   text-align: center;
-  background-color: #ff6f00;
 }
 
 .btn-floating:hover i , .btn-floating:active {
@@ -262,48 +262,3 @@ body {
   font-size: 2.6rem;
   line-height: 56px;
 }
-
-.modal {
-  display: none;
-  position: fixed;
-  left: 0;
-  right: 0;
-  background-color: #fafafa;
-  padding: 0;
-  max-height: 70%;
-  width: 55%;
-  margin: auto;
-  overflow-y: auto;
-  border-radius: 2px;
-  will-change: top, opacity;
-}
-
-.z-depth-5, .modal {
-  -webkit-box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px -7px rgba(0,0,0,0.2);
-  box-shadow: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px -7px rgba(0,0,0,0.2);
-}
-
-.modal .modal-content {
-  padding: 24px;
-}
-
-.modal-overlay {
-  position: fixed;
-  z-index: 999;
-  top: -25%;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 125%;
-  width: 100%;
-  background: #000;
-  display: none;
-  will-change: opacity;
-}
-
-h4 {
-  font-size: 2.28rem;
-  line-height: 110%;
-  margin: 1.52rem 0 .912rem 0;
-}
-
